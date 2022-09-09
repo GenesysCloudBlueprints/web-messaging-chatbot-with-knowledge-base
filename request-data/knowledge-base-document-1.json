@@ -1,0 +1,14 @@
+{
+    "type": "Faq",
+    "externalUrl": "https://www.devopsschool.com/blog/top-20-sre-interview-questions-and-answers/",
+    "faq": {
+      "question": "What are the Linux signals?",
+      "alternatives": [
+        "Enlist all the Linux signals you are aware of",
+        "Linux signals",
+        "List the Linux signals",
+        "What are Linux signals?"
+      ],
+      "answer": "The common Linux signals are mentioned below:\nSIGHUP\nSIGINT\nSIGQUIT\nSIGFPE\nSIGKILL\nSIGALRM\nSIGTERM"
+    }
+}

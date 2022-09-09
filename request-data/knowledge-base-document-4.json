@@ -1,0 +1,13 @@
+{
+    "type": "Faq",
+    "externalUrl": "https://www.devopsschool.com/blog/top-20-sre-interview-questions-and-answers/",
+    "faq": {
+      "question": "What are Service Level Indicators?",
+      "alternatives": [
+        "What is Service Level Indicators?",
+        "What is SLI?",
+        "Service Level Indicators"
+      ],
+      "answer": "A Service Level Indicator (SLI) is a measure of the service level provided by a service provider to a customer. SLIs form the basis of Service Level Objectives (SLOs), which in turn form the basis of Service Level Agreements (SLAs). An SLI can also be called an SLA metric."
+    }
+}

@@ -1,0 +1,144 @@
+botFlow:
+  name: DevOpsKnowledgeChatBot
+  description: Bot flow for DevOps knowledge base
+  division: New Home
+  startUpRef: "/botFlow/bots/bot[Default Bot_10]"
+  defaultLanguage: en-us
+  supportedLanguages:
+    en-us:
+      none: true
+  variables:
+    - integerVariable:
+        name: Flow.Index
+        initialValue:
+          noValue: true
+        isInput: false
+        isOutput: false
+  settingsActionDefaults:
+    askForIntent:
+      voiceEndOfInputTimeout:
+        lit:
+          seconds: 1
+    askForBoolean:
+      voiceEndOfInputTimeout:
+        lit:
+          seconds: 1
+    askForSlot:
+      voiceEndOfInputTimeout:
+        lit:
+          seconds: 1
+    loopAnythingElse:
+      voiceEndOfInputTimeout:
+        lit:
+          seconds: 1
+  settingsErrorHandling:
+    errorHandling:
+      exit:
+        none: true
+    enableAgentEscalation:
+      lit: true
+    errorEventHandover:
+      exp: "MakeCommunication(\n  \"Sorry, an error occurred. One moment, please, while I put you through to someone who can help.\")"
+    agentEscalationConfirmation:
+      exp: "MakeCommunication(\n  \"You want to speak to an advisor. Is that correct?\")"
+    agentEscalationHandover:
+      exp: "MakeCommunication(\n  \"One moment, please, and I will put you through to someone.\")"
+    recognitionFailureEventHandover:
+      exp: "MakeCommunication(\n  \"Sorry, I'm having trouble understanding you. One moment, please, while I put you through to someone who can help.\")"
+    recognitionFailureEventHandling:
+      exit:
+        none: true
+  settingsPrompts:
+    ensureAudioInPrompts: false
+    promptMediaToValidate:
+      - mediaType: audio
+      - mediaType: tts
+  settingsBotFlow:
+    none: true
+  settingsUserInput:
+    enableBargeIn:
+      lit: true
+    enableAutomaticQuickReplies:
+      lit: true
+    noMatchesMax:
+      lit: 3
+    noInputsMax:
+      lit: 3
+    noInputsTimeout:
+      lit:
+        seconds: 7
+    confirmationRejectionsMax:
+      lit: 3
+    collectionLowConfidenceThreshold:
+      lit: 20
+    collectionHighConfidenceThreshold:
+      lit: 70
+    confirmationLowConfidenceThreshold:
+      lit: 40
+    noMatchApology:
+      exp: "MakeCommunication(\n  \"Sorry.\")"
+    noInputApology:
+      exp: "MakeCommunication(\n  \"Sorry, I didn't hear you.\")"
+    noToConfirmationApology:
+      exp: "MakeCommunication(\n  \"My mistake.\")"
+    confirmationNoMatchApology:
+      exp: "MakeCommunication(\n  \"Sorry, please say yes or no.\")"
+    confirmationNoInputApology:
+      exp: "MakeCommunication(\n  \"Sorry, I didn't hear you.  Please say yes or no.\")"
+  settingsKnowledge:
+    DevOpsKnowledgeBase:
+      maxNumOfAnswersReturned:
+        lit: 3
+      knowledgeInitialResponseSingle:
+        noValue: true
+      knowledgeInitialResponseMulti:
+        exp: "MakeCommunication(\n  \"To help me clarify your goal, please choose a number from the following list:\")"
+      knowledgeInitialResponseMultiRetry:
+        exp: "MakeCommunication(\n  \"Please choose a number, for example '1'.\\nHere's the list of options again:\")"
+      knowledgeNoMatch:
+        exp: "MakeCommunication(\n  \"None of these\")"
+      sendKnowledgeFeedback:
+        lit: true
+      knowledgeConfirmation:
+        exp: "MakeCommunication(\n  \"Did this answer your question?\")"
+      responseBias:
+        lit: neutral
+  bots:
+    - bot:
+        name: Default Bot
+        refId: Default Bot_10
+        actions:
+          - loop:
+              name: Loop
+              currentIndex:
+                var: Flow.Index
+              loopCount:
+                lit: 99
+              outputs:
+                loop:
+                  actions:
+                    - askForIntent:
+                        name: Ask for Intent
+                        question:
+                          exp: "MakeCommunication(\n  \"What would you like to know?\")"
+                        noInput:
+                          exp: "MakeCommunication(\n  \"Just speak a short sentence that describes your query. For example, \\\"Check my account balance\\\"\")"
+                        noMatch:
+                          exp: "MakeCommunication(\n  \"Tell me again what you would like to do.\")"
+                        voiceEndOfInputTimeout:
+                          noValue: true
+                        outputs:
+                          knowledge:
+                            actions:
+                              - communicate:
+                                  name: Communicate
+                                  communication:
+                                    exp: "MakeCommunication(\n  ToCommunication(Session.LastKnowledgeAnswer))"
+          - exitBotFlow:
+              name: Exit Bot Flow
+  settingsNaturalLanguageUnderstanding:
+    nluDomainVersion:
+      intents: []
+      entities: []
+      entityTypes: []
+      language: en

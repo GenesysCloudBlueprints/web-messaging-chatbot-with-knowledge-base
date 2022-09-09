@@ -1,0 +1,32 @@
+inboundShortMessage:
+  name: DevOpsKnowledgeInbound
+  division: New Home
+  startUpRef: "/inboundShortMessage/states/state[Initial State_10]"
+  defaultLanguage: en-us
+  supportedLanguages:
+    en-us:
+      defaultLanguageSkill:
+        noValue: true
+  settingsErrorHandling:
+    errorHandling:
+      disconnect:
+        none: true
+  states:
+    - state:
+        name: Initial State
+        refId: Initial State_10
+        actions:
+          - callBotFlow:
+              name: Call Bot Flow
+              inputText:
+                exp: Message.Message.body
+              exitReason:
+                noValue: true
+              intent:
+                noValue: true
+              botFlow:
+                DevOpsKnowledgeChatBot:
+                  ver_latestPublished:
+                    none: true
+          - disconnect:
+              name: Disconnect
