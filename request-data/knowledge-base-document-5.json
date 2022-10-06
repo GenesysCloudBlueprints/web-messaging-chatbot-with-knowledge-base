@@ -1,0 +1,13 @@
+{
+    "type": "Faq",
+    "externalUrl": "https://www.devopsschool.com/blog/top-20-sre-interview-questions-and-answers/",
+    "faq": {
+      "question": "What are Data Structures?",
+      "alternatives": [
+        "Explain Data Structures",
+        "What are data structures?",
+        "data structures"
+      ],
+      "answer": "Data structure is a data organization, management, and storage format that enables efficient access and modification. More precisely, a data structure is a collection of data values, the relationships among them, and the functions or operations that can be applied to the data."
+    }
+}
