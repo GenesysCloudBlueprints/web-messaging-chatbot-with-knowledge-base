@@ -12,6 +12,10 @@ This Genesys Cloud Developer Blueprint demonstrates how to build a Web messaging
 
 ![Build a Web messaging-based chatbot and integrate with a Genesys Cloud knowledge base](images/flowchart.png "Build a Web messaging chatbot and integrate with a Genesys Cloud knowledge base")
 
+:::primary
+**Note:** This blueprint is for the Knowledge workbench V1.  In a future update, an example will be added for Knowledge workbench V2. 
+:::
+
 ## Scenario
 
 An organization is interested in building a chatbot that can answer documented and frequently asked customer questions.  They want to:
