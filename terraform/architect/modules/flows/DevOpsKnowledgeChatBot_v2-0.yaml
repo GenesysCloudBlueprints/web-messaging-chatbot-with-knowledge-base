@@ -1,9 +1,9 @@
 botFlow:
-  name: DevOpsKnowledgeChatBot
+  name: {{flow_name}}
   description: Bot flow for DevOps knowledge base
   division: New Home
   startUpRef: "/botFlow/bots/bot[Default Bot_10]"
-  defaultLanguage: en-us
+  defaultLanguage: {{default_language}}
   supportedLanguages:
     en-us:
       none: true
