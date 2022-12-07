@@ -10,11 +10,11 @@ summary: |
 ---
 This Genesys Cloud Developer Blueprint demonstrates how to build a Web messaging chatbot and integrate that chatbot with a Genesys Cloud knowledge base. All the components used in this solution can be deployed using Terraform and the Terraform Genesys Cloud CX as Code provider.
 
-![Build a Web messaging-based chatbot and integrate with a Genesys Cloud knowledge base](images/flowchart.png "Build a Web messaging chatbot and integrate with a Genesys Cloud knowledge base")
-
 :::primary
 **Note:** This blueprint is for the Knowledge workbench V1.  In a future update, an example will be added for Knowledge workbench V2. 
 :::
+
+![Build a Web messaging-based chatbot and integrate with a Genesys Cloud knowledge base](images/flowchart.png "Build a Web messaging chatbot and integrate with a Genesys Cloud knowledge base")
 
 ## Scenario
 
