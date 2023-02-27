@@ -9,17 +9,17 @@ summary: |
 This Genesys Cloud Developer Blueprint demonstrates how to build a Web messaging chatbot and integrate that chatbot with a Genesys Cloud knowledge base. All the components in this solution can be deployed using Terraform and the Terraform Genesys Cloud CX as Code provider.  
 ---
 :::{"alert":"primary","title":"About Genesys Cloud Blueprints","autoCollapse":false} 
-Genesys Cloud blueprints were built to help you jump-start building an application or integrating with a third-party partner. 
-Blueprints are meant to outline how to build and deploy your solutions, not a production-ready turn-key solution.
+Genesys Cloud blueprints are built to help you jump-start building an application or integrating with a third-party partner. 
+Blueprints outline how to build and deploy your solutions, not a production-ready turn-key solution.
  
 For more information on Genesys Cloud blueprint support and practices, 
 see our Genesys Cloud blueprint [FAQ](https://developer.genesys.cloud/blueprints/faq) sheet.
 :::
 
-This Genesys Cloud Developer Blueprint demonstrates how to build a Web messaging chatbot and integrate that chatbot with a Genesys Cloud knowledge base. All the components used in this solution can be deployed using Terraform and the Terraform Genesys Cloud CX as Code provider.
+This Genesys Cloud Developer Blueprint demonstrates how to build a Web messaging chatbot and integrate that chatbot with a Genesys Cloud knowledge base. All the components used in this solution can be deployed using the Terraform Genesys Cloud CX as Code provider.
 
-:::warning
-**Warning:** This blueprint is for the Knowledge workbench V1. In a future update, an example will be added for Knowledge workbench V2. 
+:::note
+**Note:** This blueprint is for the Knowledge workbench V1. In a future update, an example will be added for Knowledge workbench V2. 
 :::
 
 ![Build a Web messaging-based chatbot and integrate with a Genesys Cloud knowledge base](images/flowchart.png "Build a Web messaging chatbot and integrate with a Genesys Cloud knowledge base")
@@ -28,25 +28,25 @@ This Genesys Cloud Developer Blueprint demonstrates how to build a Web messaging
 
 An organization is interested in building a chatbot to answer documented and frequently asked customer questions. They want to:
 
-* Implement a custom chatbot that can be quickly added to any desired customer-facing webpage
+* Implement a custom chatbot that can be quickly added to any desired customer-facing web page
 * Create the chatbot with minimal coding effort
-* Backup solution components and track state with CX as Code
+* Backup solution components and track state with Terraform Genesys Cloud CX as Code
 
 ## Solution
 
 This blueprint explains how to use the following Genesys Cloud capabilities: 
 
-1. **Knowledge Base** - stores documentation and frequently asked questions and leverages AI for greater flexibility in recognizing customer inquiries.
-2. **Knowledge Workbench** - provides a console for managing Knowledge Bases, including training, version control, and analytics.
-1. **Bot Flow** - configures utterances and intents for speech and text recognition and can leverage a knowledge base for determining automated responses. 
-2. **Inbound Message Flow** - configures the web messaging conversation routing and directs the chat to the correct recipient.
-4. **Web Messaging Widget** - a JavaScript-based chat widget that developers can plug into their organization's website for customer interaction.
+* **Knowledge Base** - Stores documentation and frequently asked questions and leverages AI for greater flexibility in recognizing customer inquiries.
+* **Knowledge Workbench** - Provides a console for managing Knowledge Bases, including training, version control, and analytics.
+* **Bot Flow** - Configures utterances and intents for speech and text recognition and can leverage a knowledge base for determining automated responses. 
+* **Inbound Message Flow** - Configures the web messaging conversation routing and directs the chat to the correct recipient.
+* **Web Messaging Widget** - A JavaScript-based chat widget that developers can plug into their organization's website for customer interaction.
 
 ## Solution components
 
-* **Genesys Cloud CLI** - A standalone command line interface (CLI) designed for interfacing with the Genesys Cloud API.
+* **Genesys Cloud CLI** - A standalone command line interface (CLI) designed to interface with the Genesys Cloud API.
 * **Genesys Cloud CX** - A suite of Genesys Cloud services for enterprise-grade communications, collaboration, and contact center management. In this solution, you use an Architect bot, Architect message flow, a Genesys Cloud knowledge base, the Genesys Cloud Knowledge Workbench, and a web messaging widget.
-* **CX as Code** - A Genesys Cloud Terraform provider that provides an interface for declaring core Genesys Cloud objects.
+* **Terraform Genesys Cloud CX as Code** - A Genesys Cloud Terraform provider that provides an interface for declaring core Genesys Cloud objects.
 
 ## Software development kits
 
@@ -76,10 +76,10 @@ No Genesys Cloud SDKs are required for this blueprint.
 
 ### Clone the GitHub repository
 
-Clone the [web-messaging-chatbot-with-knowledge-base](https://github.com/GenesysCloudBlueprints/web-messaging-chatbot-with-knowledge-base) GitHub repository on your local machine. The `web-messaging-chatbot-with-knowledge-base` root folder includes solution-specific scripts and files in the following subfolders:
+Clone the [web-messaging-chatbot-with-knowledge-base](https://github.com/GenesysCloudBlueprints/web-messaging-chatbot-with-knowledge-base) GitHub repository on your local machine. The `web-messaging-chatbot-with-knowledge-base` root folder includes the solution-specific scripts and files in the following subfolders:
 
-* `request-data` - Files that contain JSON payloads pass as arguments to Genesys Cloud CLI commands to create the knowledge base and indexing content.
-* `terraform` - All Terraform files and Architect flows are required to deploy the solution.
+* `request-data` - Files that contain JSON payloads that pass as arguments to Genesys Cloud CLI commands to create the knowledge base and indexing content.
+* `terraform` - All Terraform files and Architect flows that are required to deploy the solution.
 
 ### Set up your Genesys Cloud credentials
 
@@ -98,7 +98,7 @@ Clone the [web-messaging-chatbot-with-knowledge-base](https://github.com/Genesys
 ### Method 1: Using the Genesys Cloud CLI and the Genesys Cloud Application
 
 :::primary
-**Note:** Skip this step if using Method 2 (Terraform/CX as Code)
+**Note:** Skip this step if you use Method 2 (Terraform/CX as Code)
 :::
 
 #### Set up the Genesys Cloud CLI
@@ -109,19 +109,19 @@ Clone the [web-messaging-chatbot-with-knowledge-base](https://github.com/Genesys
 
 1. Open a new terminal window.
 2. Set the working directory to the `request-data` folder.
-3. Run `gc knowledge knowledgebases create -f create-knowledgebase.json`.
+3. Run the following command: `gc knowledge knowledgebases create -f create-knowledgebase.json`.
 
 #### Post FAQ content to the knowledge base
 
 1. Determine the `knowledgeBaseId` by running `gc knowledge knowledgebases list` and finding the id for the knowledge base created in the previous step.
-2. `languageCode` will match the `coreLanguage` field in the `/request-data/create-knowledge-base.json` file.
+2. `languageCode` matches the `coreLanguage` field in the `/request-data/create-knowledge-base.json` file.
 3. For each `knowledge-base-document-[n].json` file, run `gc knowledge knowledgebases languages documents create [knowledgeBaseId] [languageCode] -f knowledge-base-document-[n]`
 
 #### Create the Architect components in the Genesys Cloud Application
 
 1. Add a new bot flow in Architect.
 ![Add a new bot flow in Architect](images/add-bot-flow.png)
-2. Import `flow-data/DevOpsKnowledgeChatBot_v1-0.i3BotFlow`into the bot flow.
+2. Import `flow-data/DevOpsKnowledgeChatBot_v1-0.i3BotFlow` into the bot flow.
 ![Import the bot flow](images/import-bot-flow.png)
 3. Publish the bot.
 3. Add a new inbound message flow in Architect.
@@ -129,7 +129,7 @@ Clone the [web-messaging-chatbot-with-knowledge-base](https://github.com/Genesys
 4. Import `flow-data/DevOpsKnowledgeInbound_v2-0.i3InboundMessage` into the inbound message flow.
 ![Import the inbound message flow](images/import-inbound-message-flow.png)
 5. Publish the inbound message flow.
-5. Create a new Messenger configuration (configure as desired).
+5. Create a new Messenger configuration and configure it as desired.
 ![Add a new Messenger configuration](images/add-messenger-configuration.png)
 ![Messenger configuration](images/messenger-configuration.png)
 6. Create a web deployment configured to use the inbound message flow and the messenger configuration created in the previous steps.
@@ -140,20 +140,20 @@ Clone the [web-messaging-chatbot-with-knowledge-base](https://github.com/Genesys
 #### Test the deployment
 
 1. Take the JavaScript-based snippet from the Messenger deployment and add it to your organization's web page to test the customer interaction.
-2. When prompted, enter a question that matches one contained in your knowledge base.
+2. When prompted, enter a question that matches the one contained in your knowledge base.
 3. The chatbot should detect the match and respond with the answer stored in the knowledge base.
 4. The chatbot will ask if your question was answered successfully. Answer yes if the chatbot answered the question.
-5. Navigate to the [Knowledge Workbench](https://apps.mypurecloud.com/knowledge-workbench/#/knowledgeBases) and see the updated stats for the question.  The "Surfaced" and "Positive" counts will be incremented.
+5. Navigate to the [Knowledge Workbench](https://apps.mypurecloud.com/knowledge-workbench/#/knowledgeBases) and view the updated stats for the question. The "Surfaced" and "Positive" counts are incremented.
 
-### Method 2: Using CX as Code
+### Method 2: Using Terraform Genesys Cloud CX as Code
 
 #### Configure your Terraform build
 
-1. You must define 2 organization-specific variables.
+1. You must define two organization-specific variables.
 
 You must define several values that are specific to your AWS region and Genesys Cloud organization.
 
-In the terraform/architect/dev.auto.tfvars file, set the following values:
+Set the following values in the terraform/architect/dev.auto.tfvars file:
 
 * `genesyscloud_scripting_url` - The Genesys Cloud apps URL specific to your organization's Amazon region used in generating the HTML page to test the Web Component.
 * `genesyscloud_scripting_env` - This is a short code for the environment. This value is found immediately following `https://apps.<<VALUE HERE>>.pure.cloud` from the `genesyscloud_scripting_url`, or `use1` if the scripting url is `https://apps.mypurecloud.com`. 
@@ -165,7 +165,7 @@ genesyscloud_scripting_env = "use1"
 genesyscloud_scripting_url = "https://apps.mypurecloud.com"
 ```
 
-2. Remember that if you update the resource names in the `terraform/architect/modules/flows` folder, you need to update the names where appropriate in the YAML files used for Architect flow creation in the same folder.
+2. Remember that if you update the resource names in the `terraform/architect/modules/flows` folder, you need to update the names appropriately in the YAML files used for Architect flow creation in the same folder.
 
 #### Run Terraform for knowledge base creation and indexing
 
@@ -173,10 +173,10 @@ Now, you can create the resources.
 
 1. Set the working directory to the `terraform/knowledge` folder
 2. Run `terraform init` - This initializes the working directory and prepares it for your Terraform project.
-3. Run `terraform plan` - This creates an execution plan, allowing you to preview the changes of the next `terraform apply` command. The preview includes the number of added, changed, and removed resources. Review this list and make sure you are comfortable with the activity being undertaken before continuing.
-4. Run `terraform apply --auto-approve` - command completes, you should see the output of the entire run along with the number of objects successfully created by Terraform. Keep these points in mind:
+3. Run `terraform plan` - This creates an execution plan, that allows you to preview the changes of the next `terraform apply` command. The preview includes the number of resources that are added, changed, and removed. Review this list and make sure you are comfortable with the activity that is undertaken before you continue.
+4. Run `terraform apply --auto-approve` - The command completes with the output of the objects successfully created by Terraform. Keep this in mind:
 
-* This project assumes you are running using a local Terraform backing state. This means that the `tfstate` files will be created in the same folder where you ran the project. Terraform does not recommend using local Terraform backing state files unless you run from a desktop and are comfortable with the deleted files.
+* This project assumes you are using a local Terraform backing state. This means that the `tfstate` files will be created in the same folder where you ran the project. Terraform does not recommend using local Terraform backing state files unless you run from a desktop and are comfortable with the deleted files.
 
 * As long as your local Terraform backing state projects are kept, you can tear down the blueprint in question by changing to the `terraform/knowledge` folder and issuing a `terraform destroy --auto-approve` command. This destroys all objects currently managed by the local Terraform backing state.
 
@@ -185,9 +185,9 @@ Now, you can create the resources.
 Before creating the remaining Architect resources, it is necessary to train and publish the knowledge base.
 
 1. Open a browser window and navigate to the [Knowledge Workbench](https://apps.mypurecloud.com/knowledge-workbench/#/knowledgeBases)
-2. In the table, click on the knowledge base created in the previous step to navigate to the knowledge base's page.
-3. In the upper right corner, click "Train" and wait for training to complete
-4. In the upper right corner, click "Publish" to publish the knowledge base
+2. In the table, click the knowledge base created in the previous step to navigate to the knowledge base's page.
+3. In the upper right corner, click **Train** and wait for the training to complete.
+4. In the upper right corner, click **Publish** to publish the knowledge base.
 
 #### Run Terraform for Architect resource creation
 
@@ -195,8 +195,8 @@ The next step is to create the inbound message flow, the bot, the web configurat
 
 1. Set the working directory to the `terraform/architect` folder
 2. Run `terraform init` - This initializes the working directory it prepares it for use with Terraform
-3. Run `terraform plan` - This creates an execution plan, letting you preview the changes made by the next `terraform apply` command. The preview includes the number of resources to be added, changed, and removed. Review the changes before moving on.
-4. Run `terraform apply --auto-approve` - This creates the resources outlined in the plan. Upon completion, the output should be logs of the run along with the number of objects successfully created by Terraform.
+3. Run `terraform plan` - This creates an execution plan, letting you preview the changes made by the next `terraform apply` command. The preview includes the number of resources that are added, changed, and removed. Review the changes before proceeding to next step.
+4. Run `terraform apply --auto-approve` - This creates the resources outlined in the plan. Upon completion, the command completes with the output of the run along logs and the number of objects successfully created by Terraform.
 5. Verify that a new folder `web` is created with two files, `index.html` and `server.py`
 
 #### Test the deployment
