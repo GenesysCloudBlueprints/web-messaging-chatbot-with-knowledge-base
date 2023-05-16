@@ -10,9 +10,6 @@ summary: |
 ---
 This Genesys Cloud Developer Blueprint demonstrates how to build a Web messaging chatbot and integrate that chatbot with a Genesys Cloud knowledge base. All the components used in this solution can be deployed using Terraform and the Terraform Genesys Cloud CX as Code provider.
 
-:::warning
-**Warning:** This blueprint is for the Knowledge workbench V1.  In a future update, an example will be added for Knowledge workbench V2. 
-:::
 
 ![Build a Web messaging-based chatbot and integrate with a Genesys Cloud knowledge base](images/flowchart.png "Build a Web messaging chatbot and integrate with a Genesys Cloud knowledge base")
 
@@ -31,7 +28,7 @@ An organization is interested in building a chatbot that can answer documented a
 This blueprint explains how to use the following Genesys Cloud capabilities: 
 
 1. **Knowledge Base** - stores documentation and frequently asked questions and leverages AI for greater flexibility in the recognition of customer inquiries.
-2. **Knowledge Workbench** - provides a console for the management of Knowledge Bases including training, version control, and analytics.
+2. **Knowledge Workbench** - provides a console for the management of Knowledge Bases including document management, version control, and analytics.
 1. **Bot Flow** - configures utterances and intents for speech and text recognition and can leverage a knowledge base for determining automated responses. 
 2. **Inbound Message Flow** - configures the routing for the Web messaging conversation and directs the chat to the correct recipient.
 4. **Web Messaging Widget** - a JavaScript-based chat widget that developers can plug in to their organization's website for customers to interact with.
@@ -159,37 +156,19 @@ genesyscloud_scripting_url = "https://apps.mypurecloud.com"
 
 2. Remember that if you update the names for the resources in the `terraform/architect/modules/flows` folder, you will need to update the names where appropriate in the YAML files used for Architect flow creation in the same folder.
 
-#### Run Terraform for knowledge base creation and indexing
+#### Run Terraform for resource creation
 
 With set up out of the way, you can now create the resources. 
 
-1. Set the working directory to the `terraform/knowledge` folder
+1. Set the working directory to the `terraform` folder
 2. Run `terraform init` - This initializes the working directory it prepares it for use with Terraform
 3. Run `terraform plan` - This creates an execution plan, letting you preview the changes that will be made by the next `terraform apply` command. The preview includes the number of resources to be added, changed, and removed. Review the changes before moving on.
 4. Run `terraform apply --auto-approve` - This creates the resources outlined in the plan. Upon completion, the output should be logs of the run along with the number of objects successfully created by Terraform. Keep these points in mind:
+5. Verify that a new folder `web` is created with two files, `index.html` and `server.py`
 
 *  This project assumes you are running using a local Terraform backing state. This means that the `tfstate` files will be created in the same folder where you ran the project. Terraform does not recommend using local Terraform backing state files unless you run from a desktop and are comfortable with the deleted files.
 
-* As long as your local Terraform backing state projects are kept, you can tear down the blueprint in question by changing to the `terraform/knowledge` folder and issuing a `terraform destroy --auto-approve` command. This destroys all objects currently managed by the local Terraform backing state.
-
-#### Train and publish the knowledge base
-
-Before creating the remaining Architect resources, it's necessary to train and publish the knowledge base.
-
-1. Open a browser window and navigate to the [Knowledge Workbench](https://apps.mypurecloud.com/knowledge-workbench/#/knowledgeBases)
-2. In the table, click on the the knowledge base created in the previous step to navigate to the knowledge base's page.
-3. In the upper right corner, click "Train" and wait for training to complete
-4. In the upper right corner, click "Publish" to the publish the knowledge base
-
-#### Run Terraform for Architect resource creation
-
-The next step is create the inbound message flow, the bot, the web configuration, and the web deployment.
-
-1. Set the working directory to the `terraform/architect` folder
-2. Run `terraform init` - This initializes the working directory it prepares it for use with Terraform
-3. Run `terraform plan` - This creates an execution plan, letting you preview the changes that will be made by the next `terraform apply` command. The preview includes the number of resources to be added, changed, and removed. Review the changes before moving on.
-4. Run `terraform apply --auto-approve` - This creates the resources outlined in the plan. Upon completion, the output should be logs of the run along with the number of objects successfully created by Terraform.
-5. Verify that a new folder `web` is created with two files, `index.html` and `server.py`
+* As long as your local Terraform backing state projects are kept, you can tear down the blueprint in question by changing to the `terraform` folder and issuing a `terraform destroy --auto-approve` command. This destroys all objects currently managed by the local Terraform backing state.
 
 #### Test the deployment
 
