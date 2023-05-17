@@ -1,0 +1,27 @@
+{
+    "body": {
+      "blocks": [
+        {
+          "type": "Paragraph",
+          "paragraph": {
+              "blocks": [
+                  {
+                      "type": "Text",
+                      "text": {
+                          "text": "Error budget defines the maximum amount of time a technical system can fail without contractual consequences.",
+                          "hyperlink": "https://www.devopsschool.com/blog/top-20-sre-interview-questions-and-answers/"
+                      }
+                  },
+                  {
+                      "type": "Text",
+                      "text": {
+                          "text": "Error budget encourages the teams to minimize real incidents and maximize innovation by taking risks within acceptable limits.",
+                          "hyperlink": "https://www.devopsschool.com/blog/top-20-sre-interview-questions-and-answers/"
+                      }
+                  }
+              ]
+          }
+        }
+      ]
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "body": {
+      "blocks": [
+        {
+          "type": "Paragraph",
+          "paragraph": {
+              "blocks": [
+                  {
+                      "type": "Text",
+                      "text": {
+                          "text": "A Service Level Indicator (SLI) is a measure of the service level provided by a service provider to a customer. SLIs form the basis of Service Level Objectives (SLOs), which in turn form the basis of Service Level Agreements (SLAs). An SLI can also be called an SLA metric.",
+                          "hyperlink": "https://www.devopsschool.com/blog/top-20-sre-interview-questions-and-answers/"
+                      }
+                  },
+                  {
+                      "type": "Text",
+                      "text": {
+                          "text": "Although every system is different in the services provided, common SLIs are used pretty often. Common SLIs include latency, throughput, availability, and error rate; others include durability (in storage systems), end-to-end latency (for complex data processing systems, especially pipelines), and correctness.",
+                          "hyperlink": "https://www.devopsschool.com/blog/top-20-sre-interview-questions-and-answers/"
+                      }
+                  }
+              ]
+          }
+        }
+      ]
+    }
+}

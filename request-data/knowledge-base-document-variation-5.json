@@ -1,0 +1,70 @@
+{
+    "body": {
+      "blocks": [
+        {
+          "type": "Paragraph",
+          "paragraph": {
+              "blocks": [
+                  {
+                      "type": "Text",
+                      "text": {
+                          "text": "Data structure is a data organization, management, and storage format that enables efficient access and modification. More precisely, a data structure is a collection of data values, the relationships among them, and the functions or operations that can be applied to the data.",
+                          "hyperlink": "https://www.devopsschool.com/blog/top-20-sre-interview-questions-and-answers/"
+                      }
+                  },
+                  {
+                      "type": "Text",
+                      "text": {
+                          "text": "The types of data structures are listed below:",
+                          "hyperlink": "https://www.devopsschool.com/blog/top-20-sre-interview-questions-and-answers/"
+                      }
+                  },
+                  {
+                      "type": "UnorderedList",
+                      "list": {
+                        "blocks": [
+                            {
+                                "type": "ListItem",
+                                "blocks": [
+                                    {
+                                        "type": "Text",
+                                        "text": {
+                                            "text": "Linear: Arrays, lists",
+                                            "hyperlink": "https://www.devopsschool.com/blog/top-20-sre-interview-questions-and-answers/"
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "ListItem",
+                                "blocks": [
+                                    {
+                                        "type": "Text",
+                                        "text": {
+                                            "text": "Tree: Binary, heaps",
+                                            "hyperlink": "https://www.devopsschool.com/blog/top-20-sre-interview-questions-and-answers/"
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "ListItem",
+                                "blocks": [
+                                    {
+                                        "type": "Text",
+                                        "text": {
+                                            "text": "Graphs: Decision, Acyclic, etc",
+                                            "hyperlink": "https://www.devopsschool.com/blog/top-20-sre-interview-questions-and-answers/"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                      }
+                  }
+              ]
+          }
+        }
+      ]
+    }
+}
