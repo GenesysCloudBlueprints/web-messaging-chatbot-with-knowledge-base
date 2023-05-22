@@ -100,13 +100,14 @@ Clone the [web-messaging-chatbot-with-knowledge-base](https://github.com/Genesys
 
 1. Open a new terminal window.
 2. Set the working directory to the `request-data` folder.
-3. Run `gc knowledge knowledgebases create -f create-knowledgebase.json`
+3. Run `gc knowledge knowledgebases create -f create-knowledge-base.json`
 
-#### Post FAQ content to the knowledge base
+#### Add documents to the knowledge base
 
 1. Determine the `knowledgeBaseId` by running `gc knowledge knowledgebases list` and finding the id for the knowledge base created in the previous step.
-2. `languageCode` will match the `coreLanguage` field in the `/request-data/create-knowledge-base.json` file.
-3. For each of the `knowledge-base-document-[n].json` files, run `gc knowledge knowledgebases languages documents create [knowledgeBaseId] [languageCode] -f knowledge-base-document-[n]`
+2. For each of the `knowledge-base-document-[n].json` files, run `gc knowledge knowledgebases documents create [knowledgeBaseId] -f knowledge-base-document-[n].json`
+3. For each of the `knowledge-base-document-variation-[n].json` files, run `gc knowledge knowledgebases documents variations create [knowledgeBaseId] [documentId] -f knowledge-base-document-variation-[n].json`
+4. For each of the documents created, publish a new document version by running `gc knowledge knowledgebases documents versions create [knowledgeBaseId] [documentId] -f create-document-version.json`
 
 #### Create the Architect components in the Genesys Cloud Application
 

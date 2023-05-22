@@ -66,28 +66,6 @@ resource "genesyscloud_knowledge_document_variation" "devops_variation_1" {
   }
 }
 
-resource "genesyscloud_knowledge_document_variation" "devops_variation_1_2" {
-  knowledge_base_id     = var.knowledgebase_id
-  knowledge_document_id = genesyscloud_knowledge_document.devops_document_1.id
-  published             = true
-  knowledge_document_variation {
-    body {
-      blocks {
-        type = "Paragraph"
-        paragraph {
-          blocks {
-            type = "Text"
-            text {
-              text      = "This variation is different"
-              hyperlink = "https://www.devopsschool.com/blog/top-20-sre-interview-questions-and-answers/"
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
 resource "genesyscloud_knowledge_document" "devops_document_2" {
     knowledge_base_id = var.knowledgebase_id
     published = false

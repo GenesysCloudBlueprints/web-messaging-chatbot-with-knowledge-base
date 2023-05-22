@@ -14,16 +14,16 @@ module "flows" {
     source = "./modules/flows"
 }
 
-data "genesyscloud_flow" "devops_inbound_flow" {
-    depends_on = [
-      module.flows,
-    ]
-    name = "DevOpsKnowledgeInbound"
-}
+# data "genesyscloud_flow" "devops_inbound_flow" {
+#     depends_on = [
+#       module.flows,
+#     ]
+#     name = "DevOpsKnowledgeInbound"
+# }
 
 module "webmessaging_deployment" {
     source = "./modules/web-messaging-deployment"
-    flowId = data.genesyscloud_flow.devops_inbound_flow.id
+    flowId = module.flows.inbound_flow_id
 }
 
 module "webmessaging_page" {
