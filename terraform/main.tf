@@ -14,13 +14,6 @@ module "flows" {
     source = "./modules/flows"
 }
 
-# data "genesyscloud_flow" "devops_inbound_flow" {
-#     depends_on = [
-#       module.flows,
-#     ]
-#     name = "DevOpsKnowledgeInbound"
-# }
-
 module "webmessaging_deployment" {
     source = "./modules/web-messaging-deployment"
     flowId = module.flows.inbound_flow_id
