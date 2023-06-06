@@ -1,11 +1,3 @@
-# terraform {
-#   required_providers {
-#     genesyscloud = {
-#       source = "MyPureCloud/genesyscloud"
-#     }
-#   }
-# }
-
 terraform {
   required_providers {
     genesyscloud = {
@@ -13,7 +5,3 @@ terraform {
     }
   }
 }
-
-# provider "genesyscloud" {
-#   sdk_debug = true
-# }
