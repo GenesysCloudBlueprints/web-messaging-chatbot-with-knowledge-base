@@ -1,0 +1,111 @@
+{
+    "body": {
+      "blocks": [
+        {
+          "type": "Paragraph",
+          "paragraph": {
+              "blocks": [
+                  {
+                      "type": "Text",
+                      "text": {
+                          "text": "The common Linux signals are mentioned below:",
+                          "hyperlink": "https://www.devopsschool.com/blog/top-20-sre-interview-questions-and-answers/"
+                      }
+                  },
+                  {
+                      "type": "UnorderedList",
+                      "list": {
+                        "blocks": [
+                            {
+                                "type": "ListItem",
+                                "blocks": [
+                                    {
+                                        "type": "Text",
+                                        "text": {
+                                            "text": "SIGHUP",
+                                            "hyperlink": "https://www.devopsschool.com/blog/top-20-sre-interview-questions-and-answers/"
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "ListItem",
+                                "blocks": [
+                                    {
+                                        "type": "Text",
+                                        "text": {
+                                            "text": "SIGINT",
+                                            "hyperlink": "https://www.devopsschool.com/blog/top-20-sre-interview-questions-and-answers/"
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "ListItem",
+                                "blocks": [
+                                    {
+                                        "type": "Text",
+                                        "text": {
+                                            "text": "SIGQUIT",
+                                            "hyperlink": "https://www.devopsschool.com/blog/top-20-sre-interview-questions-and-answers/"
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "ListItem",
+                                "blocks": [
+                                    {
+                                        "type": "Text",
+                                        "text": {
+                                            "text": "SIGFPE",
+                                            "hyperlink": "https://www.devopsschool.com/blog/top-20-sre-interview-questions-and-answers/"
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "ListItem",
+                                "blocks": [
+                                    {
+                                        "type": "Text",
+                                        "text": {
+                                            "text": "SIGKILL",
+                                            "hyperlink": "https://www.devopsschool.com/blog/top-20-sre-interview-questions-and-answers/"
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "ListItem",
+                                "blocks": [
+                                    {
+                                        "type": "Text",
+                                        "text": {
+                                            "text": "SIGALRM",
+                                            "hyperlink": "https://www.devopsschool.com/blog/top-20-sre-interview-questions-and-answers/"
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "ListItem",
+                                "blocks": [
+                                    {
+                                        "type": "Text",
+                                        "text": {
+                                            "text": "SIGTERM",
+                                            "hyperlink": "https://www.devopsschool.com/blog/top-20-sre-interview-questions-and-answers/"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                      }
+                  }
+              ]
+          }
+        }
+      ]
+    }
+}

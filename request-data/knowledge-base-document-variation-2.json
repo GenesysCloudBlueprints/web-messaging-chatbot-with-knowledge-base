@@ -1,0 +1,27 @@
+{
+    "body": {
+      "blocks": [
+        {
+          "type": "Paragraph",
+          "paragraph": {
+              "blocks": [
+                  {
+                      "type": "Text",
+                      "text": {
+                          "text": "An SLO or Service Level Objective is basically a key element of a service-level agreement (SLA) between a service provider and a customer that is agreed upon to measure the performance of service providers and are formed as a way of avoiding disputes. Between two parties.",
+                          "hyperlink": "https://www.devopsschool.com/blog/top-20-sre-interview-questions-and-answers/"
+                      }
+                  },
+                  {
+                      "type": "Text",
+                      "text": {
+                          "text": "SLO can be a specific measurable characteristic of SLA like availability, throughput, frequency, response time, or quality. These SLOs togethe define the expected service between the provider and the customer while varying depending on the service’s urgency, resources, and budget. SLOs provide a quantitative means to define the level of service a customer can expect from a provider.",
+                          "hyperlink": "https://www.devopsschool.com/blog/top-20-sre-interview-questions-and-answers/"
+                      }
+                  }
+              ]
+          }
+        }
+      ]
+    }
+}

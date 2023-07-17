@@ -5,14 +5,14 @@ resource "local_file" "messenger_html" {
         genesyscloud_scripting_url = "${var.genesyscloud_scripting_url}",
         genesyscloud_webmessaging_deploymentid = "${var.genesyscloud_webmessaging_deploymentid}" 
     })
-    filename = "${path.module}/../../../../web/index.html"
+    filename = "${path.module}/../../../web/index.html"
 }
 
 data "local_file" "html_data" {
     depends_on = [
       local_file.messenger_html
     ]
-    filename = "${path.module}/../../../../web/index.html"
+    filename = "${path.module}/../../../web/index.html"
 }
 
 resource "local_file" "messenger_server" {
@@ -20,5 +20,5 @@ resource "local_file" "messenger_server" {
     {   
         generated_html = "${replace(replace(data.local_file.html_data.content, "\"", "\\\""), "\n", "")}",
     })
-    filename = "${path.module}/../../../../web/server.py"
+    filename = "${path.module}/../../../web/server.py"
 }

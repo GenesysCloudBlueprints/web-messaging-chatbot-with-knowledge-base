@@ -1,14 +1,18 @@
 {
-  "type": "Faq",
-  "externalUrl": "https://www.devopsschool.com/blog/top-20-sre-interview-questions-and-answers/",
-  "faq": {
-    "question": "What is hardlink and softlink?",
-    "alternatives": [
-      "Define hardlink and softlink",
-      "Transmission Control Protocol?",
-      "Describe TCP",
-      "Describe Transmission Control Protocol"
-    ],
-    "answer": "A soft link is an actual link to the original file that can cross the file system, allows you to link between directories, and has different inode numbers or file permission to the original file.  A softlink looks like this: $ SRE softlink.file  A hard link is a mirror copy of the original file that can’t cross the file system boundaries, can’t link directories, and has the same inode number and permissions as the original.  Example: $ SRE hardlink.file"
-  }
+  "title": "What is SLO?",
+  "visible": true,
+  "alternatives": [
+    {
+      "phrase": "What is an SLO?",
+      "autocomplete": true
+    },
+    {
+      "phrase": "What is a Service Level Objective?",
+      "autocomplete": true
+    },
+    {
+      "phrase": "Service Level Objective",
+      "autocomplete": true
+    }
+  ]
 }

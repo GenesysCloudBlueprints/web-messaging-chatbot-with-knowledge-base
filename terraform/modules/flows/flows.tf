@@ -18,3 +18,7 @@ resource "genesyscloud_flow" "deploy_devops_inbound" {
     genesyscloud_flow.deploy_devops_bot
   ]
 }
+
+output "inbound_flow_id" {
+  value = genesyscloud_flow.deploy_devops_inbound.id
+}

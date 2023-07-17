@@ -1,0 +1,41 @@
+{
+  "body": {
+    "blocks": [
+      {
+        "type": "Paragraph",
+        "paragraph": {
+            "blocks": [
+                {
+                    "type": "Text",
+                    "text": {
+                        "text": "A soft link is an actual link to the original file that can cross the file system, allows you to link between directories, and has different inode numbers or file permission to the original file.",
+                        "hyperlink": "https://www.devopsschool.com/blog/top-20-sre-interview-questions-and-answers/"
+                    }
+                },
+                {
+                    "type": "Text",
+                    "text": {
+                        "text": "A softlink looks like this: $ SRE softlink.file",
+                        "hyperlink": "https://www.devopsschool.com/blog/top-20-sre-interview-questions-and-answers/"
+                    }
+                },
+                {
+                    "type": "Text",
+                    "text": {
+                        "text": "A hard link is a mirror copy of the original file that can’t cross the file system boundaries, can’t link directories, and has the same inode number and permissions as the original.",
+                        "hyperlink": "https://www.devopsschool.com/blog/top-20-sre-interview-questions-and-answers/"
+                    }
+                },
+                {
+                    "type": "Text",
+                    "text": {
+                        "text": "Example: $ SRE hardlink.file",
+                        "hyperlink": "https://www.devopsschool.com/blog/top-20-sre-interview-questions-and-answers/"
+                    }
+                }
+            ]
+        }
+      }
+    ]
+  }
+}
